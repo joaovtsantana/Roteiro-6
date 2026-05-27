@@ -1,0 +1,30 @@
+using System;
+
+public class conversao
+{
+    public string numero1;
+    public int numero;
+    
+    public void converter()
+    {
+        Console.Write("Digite um numero");
+        try
+        {
+            int numero = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Valor: {numero}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Valor inválido. Por favor, digite um número inteiro.");
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        conversao c = new conversao();
+        c.converter();
+    }
+}
