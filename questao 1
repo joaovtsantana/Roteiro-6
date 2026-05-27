@@ -1,0 +1,43 @@
+using System;
+
+public class Produto
+{
+    public int preco;
+    public string nome;
+
+    public void FazerPedido()
+    {
+        Console.Write("Digite o nome do produto: ");
+        nome = Console.ReadLine();
+        if (nome == "")
+        {
+            throw new ArgumentException("Nome nao pode ser vazio");
+        }
+
+        Console.Write("Digite o preço do produto: ");
+        preco = int.Parse(Console.ReadLine());
+        if (preco <= 0)
+        {
+            throw new ArgumentException("numero precisa ser acima de 0");
+        }
+
+        Console.WriteLine($"Pedido: {nome} por R${preco}");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        try
+        {
+        Produto p = new Produto();
+        p.FazerPedido();       
+        }
+        catch (ArgumentException e)
+        {
+            Console.WriteLine($"Erro: {e.Message}");
+        }
+    }
+
+}
