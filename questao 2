@@ -1,0 +1,40 @@
+using System;
+
+public class Temperatura
+{
+    public string graus;
+    public float grausTexto;
+
+    public void SolicitarTemperatura()
+    {
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Digite a temperatura: ");
+                    graus = Console.ReadLine();
+                    grausTexto = float.Parse(graus);
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Erro: digite um número válido.");
+                }
+            }
+            Console.WriteLine($"Temperatura: {grausTexto}");
+        }
+    }
+
+    }
+
+
+public class Program
+{
+    public static void Main()
+    {
+        Temperatura t = new Temperatura();
+        t.SolicitarTemperatura();
+
+    }
+}
